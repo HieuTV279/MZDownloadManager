@@ -64,7 +64,7 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 
 open class MZDownloadManager: NSObject {
     
-    internal var sessionManager: URLSession!
+    internal var sessionManager: URLSession! 
     
     fileprivate var backgroundSessionCompletionHandler: (() -> Void)?
     
