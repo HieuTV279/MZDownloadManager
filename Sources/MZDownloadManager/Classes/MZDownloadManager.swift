@@ -74,10 +74,10 @@ open class MZDownloadManager: NSObject {
     
     fileprivate(set) open weak var delegate: MZDownloadManagerDelegate?
     
-    open var onDownloadingArrayChange: (() -> Void)?
+    open var onDownloadingArrayChange: (([MZDownloadModel]) -> Void)?
     open var downloadingArray: [MZDownloadModel] = [] {
         didSet {
-            onDownloadingArrayChange?()
+            onDownloadingArrayChange?(downloadingArray)
         }
     }
     
