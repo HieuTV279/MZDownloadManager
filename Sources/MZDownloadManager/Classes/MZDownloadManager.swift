@@ -72,9 +72,14 @@ open class MZDownloadManager: NSObject {
     fileprivate let TaskDescFileURLIndex = 1
     fileprivate let TaskDescFileDestinationIndex = 2
     
-   fileprivate(set) open weak var delegate: MZDownloadManagerDelegate?
+    fileprivate(set) open weak var delegate: MZDownloadManagerDelegate?
     
-    open var downloadingArray: [MZDownloadModel] = []
+    open var onDownloadingArrayChange: (() -> Void)?
+    open var downloadingArray: [MZDownloadModel] = [] {
+        didSet {
+            onDownloadingArrayChange?()
+        }
+    }
     
     public convenience init(session sessionIdentifer: String, delegate: MZDownloadManagerDelegate? = nil, sessionConfiguration: URLSessionConfiguration? = nil, completion: (() -> Void)? = nil) {
         self.init()
