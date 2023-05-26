@@ -292,7 +292,6 @@ extension MZDownloadManager: URLSessionDownloadDelegate {
                             self.downloadingArray.remove(at: index)
                             
                             if err == nil {
-                                downloadModel.finishedDownload?()
                                 self.delegate?.downloadRequestFinished?(downloadModel, index: index)
                             } else {
                                 self.delegate?.downloadRequestCanceled?(downloadModel, index: index)
