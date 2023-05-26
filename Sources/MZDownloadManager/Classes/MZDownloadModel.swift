@@ -46,7 +46,7 @@ open class MZDownloadModel: NSObject {
     
     open var startTime: Date?
     
-    open var finished: (() -> Void)?
+    open var finishedDownload: (() -> Void)?
     
     fileprivate(set) open var destinationPath: String = ""
     
